@@ -17,3 +17,12 @@ func FindShortURL(url string) string {
 func StoreURL(shortURL, longURL string) {
 	shortenedURLStore[shortURL] = longURL
 }
+
+// FindLongURL retruns long URL from memory
+func FindLongURL(shortURL string) string {
+	longURL, ok := shortenedURLStore[shortURL]
+	if !ok {
+		return ""
+	}
+	return longURL
+}

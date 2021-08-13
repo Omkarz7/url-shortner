@@ -12,6 +12,7 @@ func main() {
 	fmt.Println("Starting server at port ", api.Port)
 
 	http.HandleFunc("/cutShort", api.CreateShortUrl)
+	http.HandleFunc("/", api.RedirectShortURL)
 
 	if err := http.ListenAndServe(api.Port, nil); err != nil {
 		log.Fatal(err)
