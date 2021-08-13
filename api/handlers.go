@@ -44,6 +44,5 @@ func RedirectShortURL(w http.ResponseWriter, r *http.Request) {
 		PageNotFound(w, r)
 		return
 	}
-	fmt.Println(r.RequestURI, r.URL, longURL)
 	http.Redirect(w, r, longURL, http.StatusSeeOther)
 }
