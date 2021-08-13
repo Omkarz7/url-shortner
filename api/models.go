@@ -2,9 +2,10 @@ package api
 
 // cutShortURL srtuct is used to consume request and write reponse
 type cutShortURL struct {
-	OriginalURL  string `json:"originalUrl"`
+	LongURL      string `json:"longURL"`
 	ShortenedURL string `json:"shortenedUrl"`
 }
 
-// shortenedURLMap keeps track to URLs already shortened
-var shortenedURLMap = make(map[string]string)
+//Configs for host and port
+var host = "http://localhost"
+var Port = ":4700"

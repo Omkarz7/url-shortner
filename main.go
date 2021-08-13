@@ -2,17 +2,18 @@ package main
 
 import (
 	"fmt"
-	"github.com/Omkarz7/url-shortner/api"
 	"log"
 	"net/http"
+
+	"github.com/Omkarz7/url-shortner/api"
 )
 
 func main() {
-	fmt.Printf("Starting server at port 8080\n")
+	fmt.Println("Starting server at port ", api.Port)
 
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	http.HandleFunc("/cutShort", api.CreateShortUrl)
+
+	if err := http.ListenAndServe(api.Port, nil); err != nil {
 		log.Fatal(err)
 	}
-
-	http.HandleFunc("/cutShort", api.Shorten)
 }
